@@ -21,12 +21,7 @@ Neste desenvolvimento, apliquei conceitos fundamentais de segurança digital:
 - [x] Proteção contra geração de senhas vazias.
 - [x] Interface interativa via linha de comando.
 
-## 🛠️ Como executar
-
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/SEU_USUARIO/gerador-senhas.git](https://github.com/SEU_USUARIO/gerador-senhas.git)
-
+```python
 import secrets
 import string
 
@@ -96,4 +91,5 @@ if __name__ == "__main__":
 
     # Gera e exibe a senha final.
     senha = gerar_senha(tamanho_escolhido, caracteres_escolhidos)
+    print(f"Senha gerada: {senha}")
     print(f"Senha gerada: {senha}")
