@@ -1,3 +1,37 @@
+# Gerenciador de Senhas Simples (Python) 🔐
+
+Este projeto é uma aplicação de linha de comando (CLI) desenvolvida em Python para o gerenciamento básico de credenciais. O sistema permite armazenar, visualizar e excluir senhas de forma organizada em um arquivo de texto local.
+
+## 🚀 Funcionalidades
+
+* **Adicionar Senhas:** Registra um serviço e sua respectiva senha no arquivo `minhas_senhas.txt`.
+* **Visualização Flexível:** Permite listar todas as senhas salvas ou buscar por um serviço específico.
+* **Exclusão de Registros:** Localiza e remove credenciais específicas, reescrevendo o arquivo de forma otimizada.
+* **Tratamento de Erros:** Sistema preparado para lidar com arquivos inexistentes (`FileNotFoundError`) sem interromper a execução.
+
+## 🛠️ Tecnologias e Conceitos Aplicados
+
+Este projeto foi desenvolvido como parte dos meus estudos em **Análise e Desenvolvimento de Sistemas**, aplicando conceitos de:
+* **Manipulação de Arquivos (I/O):** Uso de `open()` com modos de escrita (`a`, `w`) e leitura (`r`).
+* **Estruturas de Dados:** Manipulação de strings e listas para separação de dados.
+* **Lógica de Programação:** Estruturas de repetição (`while`) e condicionais aninhadas.
+* **Segurança Básica:** Abstração de armazenamento de dados locais.
+
+## 📂 Como Rodar o Projeto
+
+1.  Certifique-se de ter o **Python 3.x** instalado.
+2.  Clone este repositório:
+    ```bash
+    git clone [https://github.com/seu-usuario/gerenciador-de-senhas.git](https://github.com/seu-usuario/gerenciador-de-senhas.git)
+    ```
+3.  Navegue até a pasta e execute:
+    ```bash
+    python seu_arquivo.py
+    ```
+
+---
+💡 *Projeto desenvolvido para fins de estudo em Redes e Segurança e Software Básico.*
+
 
 # Criação da função "adicionar", que será responsável pela criação de senhas.
 def adicionar():
