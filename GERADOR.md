@@ -1,3 +1,32 @@
+# Gerador de Senhas Criptograficamente Seguro 🛡️
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Security](https://img.shields.io/badge/Security-000000?style=for-the-badge&logo=hackthebox&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge)
+
+Este projeto foi desenvolvido como parte dos meus estudos em **Análise e Desenvolvimento de Sistemas (ADS)**, focando nas disciplinas de **Redes e Segurança** e **Software Básico**. Trata-se de uma ferramenta robusta para geração de credenciais seguras via terminal.
+
+## 🧠 Conceitos Aplicados
+
+Neste desenvolvimento, apliquei conceitos fundamentais de segurança digital:
+
+* **Entropia de Dados:** Uso do módulo `secrets` em vez do `random` para garantir aleatoriedade de nível criptográfico (imprescindível em Redes e Segurança).
+* **Modularização:** Código estruturado em funções reutilizáveis, facilitando a manutenção e a integração em outros sistemas.
+* **Validação de Input:** Tratamento rigoroso de erros para evitar falhas durante o tempo de execução (Software Básico).
+
+## 🚀 Funcionalidades
+
+- [x] Definição de comprimento entre 6 e 16 caracteres.
+- [x] Seleção personalizada de caracteres (Maiúsculas, Minúsculas, Números e Símbolos).
+- [x] Proteção contra geração de senhas vazias.
+- [x] Interface interativa via linha de comando.
+
+## 🛠️ Como executar
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/SEU_USUARIO/gerador-senhas.git](https://github.com/SEU_USUARIO/gerador-senhas.git)
+
 import secrets
 import string
 
