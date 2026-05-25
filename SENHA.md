@@ -17,17 +17,7 @@ Este projeto foi desenvolvido como parte dos meus estudos em **Análise e Desenv
 * **Lógica de Programação:** Estruturas de repetição (`while`) e condicionais aninhadas.
 * **Segurança Básica:** Abstração de armazenamento de dados locais.
 
-## 📂 Como Rodar o Projeto
 
-1.  Certifique-se de ter o **Python 3.x** instalado.
-2.  Clone este repositório:
-    ```bash
-    git clone [https://github.com/seu-usuario/gerenciador-de-senhas.git](https://github.com/seu-usuario/gerenciador-de-senhas.git)
-    ```
-3.  Navegue até a pasta e execute:
-    ```bash
-    python seu_arquivo.py
-    ```
 
 ---
 💡 *Projeto desenvolvido para fins de estudo em Redes e Segurança e Software Básico.*
