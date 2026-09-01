@@ -94,7 +94,171 @@ Projetos-para-treino/
 
 Desenvolvido por **Leonardo Prada**.
 
-[![GitHub](https://img.shields.io/badge/Leonardo%20Prada-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Prada-07)
+## 💻 Código-fonte
+
+```python
+import string
+import secrets
+
+
+def adicionar():
+    servico = input("Digite o serviço:\n-> ").strip().upper()
+
+    def tamanho_senha():
+        while True:
+            try:
+                tamanho = int(input("Quantas caracteres deseja em sua senha? (6-16)\n-> "))
+                if 6 <= tamanho <= 16:
+                    return tamanho
+                print("Por favor, escolha um valor entre 6 e 16 caracteres")
+            except ValueError:
+                print("Entrada inválida. Digite um número inteiro.")
+
+    def escolher_caracteres():
+        while True:
+            caracteres = ""
+            maiusculo = input("Deseja incluir letras maiúsculas? (S/N)\n-> ").strip().upper()
+            if maiusculo in ["SIM", "S"]:
+                caracteres += string.ascii_uppercase
+            elif maiusculo not in ["SIM", "S", "NÃO", "NAO", "N"]:
+                print("Por favor, digite uma opção válida. (SIM/NÃO)")
+                continue
+
+            minusculo = input("Deseja incluir letras minúsculas? (S/N)\n-> ").strip().upper()
+            if minusculo in ["SIM", "S"]:
+                caracteres += string.ascii_lowercase
+            elif minusculo not in ["SIM", "S", "NÃO", "NAO", "N"]:
+                print("Por favor, digite uma opção válida. (SIM/NÃO)")
+                continue
+
+            numero = input("Deseja incluir números? (S/N)\n-> ").strip().upper()
+            if numero in ["SIM", "S"]:
+                caracteres += string.digits
+            elif numero not in ["SIM", "S", "NÃO", "NAO", "N"]:
+                print("Por favor, digite uma opção válida. (SIM/NÃO)")
+                continue
+
+            especial = input("Deseja incluir caracteres especiais? (S/N)\n-> ").strip().upper()
+            if especial in ["SIM", "S"]:
+                caracteres += string.punctuation
+            elif especial not in ["SIM", "S", "NÃO", "NAO", "N"]:
+                print("Por favor, digite uma opção válida. (SIM/NÃO)")
+                continue
+
+            if not caracteres:
+                print("Você deve escolher pelo menos um tipo de caractere.")
+                continue
+            return caracteres
+
+    def gerar_senha(tamanho, caracteres):
+        return "".join(secrets.choice(caracteres) for _ in range(tamanho))
+
+    while True:
+        aleatorio = input("Deseja utilizar uma senha aleatória?\n-> ").strip().upper()
+        if aleatorio in ["SIM", "S"]:
+            tamanho_escolhido = tamanho_senha()
+            caracteres_escolhidos = escolher_caracteres()
+            senha = gerar_senha(tamanho_escolhido, caracteres_escolhidos)
+            print(f"Senha gerada: {senha}")
+            break
+        if aleatorio in ["NÃO", "NAO", "N"]:
+            senha = input("Digite a senha:\n-> ").strip()
+            break
+        print("Opção inválida. Por favor, digite SIM ou NÃO.")
+
+    with open("minhas_senhas.txt", "a") as arquivo:
+        arquivo.write(f"{servico} : {senha}\n")
+    print("\nSalvando...")
+    print("Salvo!")
+
+
+def visualizar():
+    try:
+        escolha = input("Deseja localizar todos os serviços?\n-> ").strip().upper()
+
+        if escolha in ("SIM", "S"):
+            with open("minhas_senhas.txt", "r") as arquivo:
+                for linha in arquivo:
+                    if linha.strip():
+                        servico, senha = [p.strip() for p in linha.split(":", 1)]
+                        print(f"\n📍 Serviço:{servico} -> Senha:{senha}")
+        elif escolha in ("NAO", "NÃO", "N"):
+            localizacao = input("Digite o serviço que deseja localizar:\n-> ").strip().upper()
+            encontrado = False
+
+            with open("minhas_senhas.txt", "r") as arquivo:
+                for linha in arquivo:
+                    if not linha.strip():
+                        continue
+                    servico, senha = [p.strip() for p in linha.split(":", 1)]
+                    if servico == localizacao:
+                        print(f"\n📍 Serviço:{servico} -> Senha:{senha}")
+                        encontrado = True
+                        break
+
+            if not encontrado:
+                print("\nServiço não encontrado.")
+        else:
+            print("\nOpção inválida.")
+    except FileNotFoundError:
+        print("\nArquivo não encontrado.")
+
+
+def apagar():
+    try:
+        with open("minhas_senhas.txt", "r") as arquivo:
+            for linha in arquivo:
+                item = linha.strip().split(":")
+                print(f"\n📍 Serviço:{item[0]} -> Senha:{item[1]}")
+
+        servico = input("Digite o serviço para apagar:\n-> ").strip().upper()
+        with open("minhas_senhas.txt", "r") as arquivo:
+            linhas = arquivo.readlines()
+
+        encontrado = False
+        with open("minhas_senhas.txt", "w") as arquivo:
+            for linha in linhas:
+                if linha.startswith(servico + " :"):
+                    encontrado = True
+                else:
+                    arquivo.write(linha)
+
+        if encontrado:
+            print("\nSenha apagada!")
+            while True:
+                continuacao = input("\nDeseja apagar outra senha?\n-> ").strip().upper()
+                if continuacao in ("SIM", "S"):
+                    apagar()
+                    break
+                if continuacao in ("NÃO", "NAO", "N"):
+                    break
+                print("\nOpção inválida")
+        else:
+            print("\nServiço não encontrado.")
+    except FileNotFoundError:
+        print("\nArquivo não encontrado.")
+
+
+while True:
+    print("\n1 - Adicionar senha")
+    print("2 - Visualizar senhas")
+    print("3 - Apagar senha")
+    print("4 - Sair do sistema")
+
+    opcao = input("\n-> ").strip()
+
+    if opcao == "1":
+        adicionar()
+    elif opcao == "2":
+        visualizar()
+    elif opcao == "3":
+        apagar()
+    elif opcao == "4":
+        print("\nSaindo do sistema...")
+        break
+    else:
+        print("\nOpção inválida")
+```
 
 ---
 
