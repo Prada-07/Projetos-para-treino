@@ -79,7 +79,7 @@ Projetos-para-treino/
 
 ## 💻 Código-fonte
 ```python
-  import secrets
+import secrets
 import string
 
 # Função para ler o tamanho da senha desejado pelo usuário.
